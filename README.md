@@ -181,6 +181,6 @@ npm run start
 | useLocation   | Дозволяє отримувати інформацію про поточний URL-адресу, включаючи шлях, пошуковий рядок і стан, що корисно для визначення місця знаходження в додатку |
 | useEffect     | Дозволяє виконати побічний ефект при кожному рендері компонента, що дозволяє взаємодіяти з зовнішнім світом і оновлювати стан компонента              |
 
-## [<img src="./public/logo.svg" width="20" alt="React"> <span style='color: green'>E-Pharmacy</span>](https://admin-dashboard-seven-roan.vercel.app)
+## [<img src="./public/logo.svg" width="14" alt="React"> <span style='color: green'>E-Pharmacy</span>](https://admin-dashboard-seven-roan.vercel.app)
 
 [Ihor Zolotoverkh](www.linkedin.com/in/ihor-zolotoverkh)

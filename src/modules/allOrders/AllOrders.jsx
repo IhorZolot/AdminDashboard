@@ -34,8 +34,12 @@ const AllOrders = () => {
   return (
     <div className={styles.sectionOrders}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-        <AllOrdersTab />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <AllOrdersTab />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

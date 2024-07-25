@@ -22,12 +22,12 @@ const UserFilter = ({ placeholder, onFilter }) => {
       toast.error('Please enter filter value!');
       return;
     }
-   onFilter(filterValue, currentPage);
-  toast.success('Filter applied successfully!');
+    onFilter(filterValue, currentPage);
+    toast.success('Filter applied successfully!');
   };
   const handleClearInput = () => {
     setFilterValue('');
-    onFilter('', 1);
+    onFilter('', '');
     toast.success('Filter cleared successfully!');
   };
   const handleKeyDown = (e) => {
@@ -38,20 +38,21 @@ const UserFilter = ({ placeholder, onFilter }) => {
 
   return (
     <div className={styles.sectorInput}>
-      <div className={styles.inputDiv}> 
+      <div className={styles.inputDiv}>
         <Input
-        type="text"
-        placeholder={placeholder}
-        value={filterValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        className={styles.inputField}
-      />
-        {filterValue && ( 
-        <button className={styles.clearButton} onClick={handleClearInput}>
-          &#x2715; 
-        </button>
-      )}</div>
+          type="text"
+          placeholder={placeholder}
+          value={filterValue}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className={styles.inputField}
+        />
+        {filterValue && (
+          <button className={styles.clearButton} onClick={handleClearInput}>
+            &#x2715;
+          </button>
+        )}
+      </div>
 
       <Button onClick={handleFilterSubmit}>
         <SpriteSVG name="filter" /> Filter
