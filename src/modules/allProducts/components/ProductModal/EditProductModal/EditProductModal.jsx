@@ -4,18 +4,18 @@ import { Form, Formik } from 'formik';
 import { toast } from 'react-toastify';
 
 import validationsUpdateProductSchema from '../helpers/validationsProductEditSchema';
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
-import { selectCategories } from '../../../../../redux/Products/productSlice';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
+import { selectCategories } from '@/redux/Products/productSlice';
 import styles from './EditProductModal.module.scss';
 import {
   getCategoriesThunk,
   updateProductThunk,
-} from '../../../../../redux/Products/operations';
+} from '@/redux/Products/operations';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 
 const EditProductModal = ({ products, onClose }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const EditProductModal = ({ products, onClose }) => {
   const categories = useSelector(selectCategories);
   console.log(products);
   const handleSubmit = (values, { resetForm }) => {
-    const updatedProduct = { ...products, ...values};
+    const updatedProduct = { ...products, ...values };
     dispatch(updateProductThunk(updatedProduct)).then(() => {
       toast.success('Product updated successfully');
       resetForm();

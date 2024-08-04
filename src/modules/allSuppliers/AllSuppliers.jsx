@@ -19,7 +19,7 @@ import {
   selectCurrentSuppliersPage,
   selectSuppliersPages,
 } from '@redux/Suppliers/suppliersSlice';
-import  Pagination  from '@/shared/pagination';
+import Pagination from '@/shared/pagination';
 
 const AllSuppliers = () => {
   const dispatch = useDispatch();
@@ -30,11 +30,13 @@ const AllSuppliers = () => {
   const currentPage = useSelector(selectCurrentSuppliersPage);
 
   useEffect(() => {
-    dispatch(fetchSuppliersThunk(currentPage));
+    dispatch(fetchSuppliersThunk());
   }, [dispatch, currentPage]);
 
   const applyFilter = async (value) => {
-   const results = await dispatch(filteredSuppliersByFieldThunk(value)).unwrap();
+    const results = await dispatch(
+      filteredSuppliersByFieldThunk(value)
+    ).unwrap();
     return results;
   };
 
@@ -55,8 +57,12 @@ const AllSuppliers = () => {
           }}
         />
       </div>
-        <AllSuppliersTab onOpen={handleOpenEditModal} />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <AllSuppliersTab onOpen={handleOpenEditModal} />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddSuppliersModal onClose={closeAdd} />

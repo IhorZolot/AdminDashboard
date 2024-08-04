@@ -20,7 +20,7 @@ import {
   selectCurrentPage,
   selectPages,
 } from '@redux/Products/productSlice';
-import Pagination  from '@/shared/pagination';
+import Pagination from '@/shared/pagination';
 
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -31,10 +31,12 @@ const AllProducts = () => {
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchProductsThunk(currentPage));
+    dispatch(fetchProductsThunk());
   }, [dispatch, currentPage]);
   const applyFilter = async (value) => {
-   const results = await dispatch(filteredProductsByFieldThunk(value)).unwrap();
+    const results = await dispatch(
+      filteredProductsByFieldThunk(value)
+    ).unwrap();
     return results;
   };
   const handleOpenEditModal = (product) => {
@@ -56,13 +58,17 @@ const AllProducts = () => {
               openAdd();
             }}
           >
-            <SpriteSVG name="add"/>
+            <SpriteSVG name="add" />
           </RoundButton>
           <p className={styles.text}>Add a new product</p>
         </div>
       </div>
-        <AllProductsTab onOpenEdit={handleOpenEditModal} />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <AllProductsTab onOpenEdit={handleOpenEditModal} />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
       {isOpenAddModal && (
         <Modal onClose={closeAdd}>
           <AddProductModal onClose={closeAdd} />

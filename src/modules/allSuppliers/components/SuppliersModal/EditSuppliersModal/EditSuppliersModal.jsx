@@ -4,19 +4,19 @@ import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
 import styles from './EditSuppliersModal.module.scss';
-import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+import { selectStatus } from '@/redux/Suppliers/suppliersSlice';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import validationsSuppliersEditSchema from '../helpers/validationsSuppliersEditSchema';
 import {
   getStatusThunk,
   updateSuppliersThunk,
-} from '../../../../../redux/Suppliers/operations';
+} from '@/redux/Suppliers/operations';
 
 const EditSuppliersModal = ({ suppliers, onClose }) => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const EditSuppliersModal = ({ suppliers, onClose }) => {
     ...suppliers,
     date: format(parseISO(suppliers.date), 'yyyy-MM-dd'),
   };
-console.log("suppliers",suppliers)
+  console.log('suppliers', suppliers);
   const handleSubmit = (values, { resetForm }) => {
     const updatedSuppliers = { ...suppliers, ...values };
     dispatch(updateSuppliersThunk(updatedSuppliers)).then(() => {

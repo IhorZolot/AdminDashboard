@@ -8,9 +8,12 @@ import {
   fetchCustomersThunk,
   filteredCustomersByFieldThunk,
 } from '@redux/Customers/operations';
-import  Pagination  from '@/shared/pagination';
+import Pagination from '@/shared/pagination';
 import { currentPageCustomers } from '@redux/Customers/customerSlice';
-import { selectCurrentCustomersPage, selectCustomersPage } from '../../redux/Customers/customerSlice';
+import {
+  selectCurrentCustomersPage,
+  selectCustomersPage,
+} from '../../redux/Customers/customerSlice';
 
 const CustomersData = () => {
   const dispatch = useDispatch();
@@ -19,10 +22,12 @@ const CustomersData = () => {
   const totalPages = useSelector(selectCustomersPage);
 
   useEffect(() => {
-    dispatch(fetchCustomersThunk(currentPage));
+    dispatch(fetchCustomersThunk());
   }, [dispatch, currentPage]);
   const applyFilter = async (value) => {
-   const results = await dispatch(filteredCustomersByFieldThunk(value)).unwrap();
+    const results = await dispatch(
+      filteredCustomersByFieldThunk(value)
+    ).unwrap();
     return results;
   };
 
@@ -32,8 +37,12 @@ const CustomersData = () => {
   return (
     <div className={styles.section}>
       <UserFilter placeholder="User Name" onFilter={applyFilter} />
-        <CustomersTab />
-      <Pagination totalPages={totalPages} onPageChange={handlePageChange} currentPage={currentPage} />
+      <CustomersTab />
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        currentPage={currentPage}
+      />
     </div>
   );
 };

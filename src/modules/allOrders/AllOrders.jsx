@@ -22,7 +22,7 @@ const AllOrders = () => {
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    dispatch(fetchOrdersThunk(currentPage));
+    dispatch(fetchOrdersThunk());
   }, [dispatch, currentPage]);
   const applyFilter = async (value) => {
     const results = await dispatch(fetchOrdersByFieldThunk(value));

@@ -3,19 +3,19 @@ import { Form, Formik } from 'formik';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SpriteSVG } from '../../../../../assets/icons/SpriteSVG';
-import Button from '../../../../../shared/components/Button';
+import { SpriteSVG } from '@assets/icons/SpriteSVG';
+import Button from '@shared/components/Button';
 import styles from './AddSuppliersModal.module.scss';
 import {
   FormikInput,
   FormikSelect,
-} from '../../../../../shared/components/InputFields/Input';
+} from '@shared/components/InputFields/Input';
 import validationsSuppliersAddSchema from '../helpers/validationsSuppliersAddSchema';
 import {
   addSuppliersThunk,
   getStatusThunk,
-} from '../../../../../redux/Suppliers/operations';
-import { selectStatus } from '../../../../../redux/Suppliers/suppliersSlice';
+} from '@/redux/Suppliers/operations';
+import { selectStatus } from '@/redux/Suppliers/suppliersSlice';
 
 const initialValues = {
   name: '',
