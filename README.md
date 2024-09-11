@@ -51,7 +51,7 @@ npm install
 
 4. Клонування репозиторію:
    ```
-   git clone https://github.com/IhorZolot/BackAdmDashboard.git
+   git clone https://github.com/your-repository/BackAdmDashboard.git
    ```
 5. Перейти у відповідну папку:
 
